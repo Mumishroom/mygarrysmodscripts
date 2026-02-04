@@ -5,6 +5,7 @@ hook.Add("CreateEntityRagdoll", "AutoRemoveAnyRagdoll", function(owner, rag)
 end)
 
 
-timer.Create("gigga", 30, 0, function()
+timer.Create("decalremover", 30, 0, function()
     RunConsoleCommand("r_cleardecals")
 end)
+
