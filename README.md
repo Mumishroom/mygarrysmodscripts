@@ -1,0 +1,2 @@
+There are two simple addons here. I made the first one, limit_hp, because I didn't like the combat system in Garry's Mod and most shooters, where a player can easily open doors and get shot in the face and still survive due to high HP. So I decided to limit the player's HP and armor to 30.
+The second one is automatic ragdoll and decal remover that after of 60 seconds of npc death will be remove its ragdoll and also every 20 second thath script remove all decals
