@@ -14,6 +14,8 @@ if CLIENT then
         RunConsoleCommand("studio_queue_mode", "1")
         RunConsoleCommand("cl_threaded_bone_setup", "1")
         RunConsoleCommand("r_queued_ropes", "1")
+        RunConsoleCommand("mat_bloomscale", "0");
+        RunConsoleCommand("mat_bloom_scalefactor_scalar", "0")
     end
 
     hook.Add("InitPostEntity", "client_optimization", function()
@@ -24,6 +26,8 @@ if CLIENT then
         end
 
         ApplyOptimization()
-        hook.Remove("OnEntityCreated", "WidgetInit")
     end)
 end
+
+RunConsoleCommand("mat_bloomscale", "0");
+RunConsoleCommand("mat_bloom_scalefactor_scalar", "0")
