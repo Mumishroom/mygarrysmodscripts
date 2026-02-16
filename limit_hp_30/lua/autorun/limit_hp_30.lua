@@ -30,12 +30,6 @@ if SERVER then
             ragdoll:SetCollisionGroup(COLLISION_GROUP_WEAPON)
         end
     end)
-
-    hook.Add("EntityFireBullets", "NoBulletForce", function(ent, data)
-        data.Force = 0.01
-        return true
-    end)
-
 end
 
 
@@ -67,11 +61,27 @@ if CLIENT then
         end
     end )
 
-    hook.Add("CalcView", "FuckTFASprintFOV", function(ply, pos, ang, fov)
-        return {
-            origin = pos,
-            angles = ang,
-            fov = GetConVar("fov_desired"):GetInt()
-        }
+    hook.Add("RenderScreenspaceEffects", "HorrorPostFX", function()
+        local tab = {}
+        tab["$pp_colour_addr"] = 0.04
+        tab["$pp_colour_addg"] = 0.02
+        tab["$pp_colour_addb"] = -0.12
+
+        tab["$pp_colour_brightness"] = -0.09
+        tab["$pp_colour_contrast"]   = 0.65
+        tab["$pp_colour_colour"]     = 0.70
+
+        tab["$pp_colour_mulr"] = 0.09
+        tab["$pp_colour_mulg"] = 0.05
+        tab["$pp_colour_mulb"] = -0.2
+
+        DrawColorModify(tab)
+        DrawBloom(
+            0.1,
+            1,
+            9, 9,
+            1, 1,
+            1, 1, 1
+        )
     end)
 end
