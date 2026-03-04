@@ -2,7 +2,6 @@ if SERVER then
     hook.Add("PlayerSpawn", "LimitHP30", function(ply)
         timer.Simple(0, function()
             if not IsValid(ply) then return end
-
             ply:SetMaxHealth(30)
             ply:SetHealth(30)
             ply:SetMaxArmor(30)
@@ -58,6 +57,7 @@ if CLIENT then
         RunConsoleCommand("r_decals", "8192")
         RunConsoleCommand("r_drawmodeldecals", "1")
         RunConsoleCommand("mp_decals", "8192")
+	RunConsoleCommand("mat_specular", "0")
     end
 
     hook.Add("InitPostEntity", "client_optimization", function()
@@ -108,16 +108,16 @@ if CLIENT then
     end)
 
     local tab = {}
-    tab["$pp_colour_addr"] = -0.01
-    tab["$pp_colour_addg"] = -0.01
-    tab["$pp_colour_addb"] = 0.04
+    tab["$pp_colour_addr"] = -0.06
+    tab["$pp_colour_addg"] = -0.06
+    tab["$pp_colour_addb"] = 0.06
 
     tab["$pp_colour_brightness"] = -0.07
-    tab["$pp_colour_contrast"]   = 0.60
+    tab["$pp_colour_contrast"]   = 0.70
     tab["$pp_colour_colour"]     = 0.65
 
-    tab["$pp_colour_mulr"] = -0.04
-    tab["$pp_colour_mulg"] = -0.04
+    tab["$pp_colour_mulr"] = -0.12
+    tab["$pp_colour_mulg"] = -0.12
     tab["$pp_colour_mulb"] = 0.48
 
     hook.Add("RenderScreenspaceEffects", "HorrorPostFX", function()
